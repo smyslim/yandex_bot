@@ -35,7 +35,8 @@ else{ //если не на главной странице поиска
     for(let i=0; i<links.length; i++){
         if(links[i].href.indexOf("xn----7sbab5aqcbiddtdj1e1g.xn--p1ai") != -1){ //если у ссылки нужный адрес, то кликнуть по ней, выключить флаг и остановить цикл
             links[i].removeAttribute('target');
-            setTimeout(()=>links[i].click(),2000);
+            let link = links[i];
+            setTimeout(()=>link.click(),2000);
             flag = false;
             break;
         }
