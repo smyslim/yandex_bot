@@ -52,7 +52,7 @@ else if(location.hostname == "yandex.ru"){ //если находимся не н
     let flag = true; //включаем флаг
     let pageNum = document.querySelector("span.pager__item").innerText; //номер текущей страницы заводим в переменную
     for(let i=0; i<links.length; i++){
-        let link = links[i]; //фиксируем ссылку в переменной, так на странице могут динамически подгрузиться другие ссылки
+        let link = links[i]; //фиксируем ссылку в переменной, иначе на странице могут динамически подгрузиться другие ссылки
         if(link.href.indexOf(site) != -1){ //если у ссылки нужный адрес, то...
             link.removeAttribute('target'); //...отключить аттрибут target для открытия в той же вкладке
             setTimeout(()=>link.click(),2000); //...кликнуть по ссылке с задержкой
@@ -60,7 +60,7 @@ else if(location.hostname == "yandex.ru"){ //если находимся не н
             break; //...и остановить цикл
         }
     }
-    if(pageNum == "10") location.href = "https://yandex.ru/"; //если пришел на 10 страницу, то возвращайся на стартовую страницу гугла
+    if(pageNum == "10") location.href = "https://yandex.ru/"; //если пришел на 10 страницу, то возвращайся на стартовую страницу поисковика
     if(flag) {
         let nextPage = document.querySelector(".pager__item_kind_next");
         setTimeout(()=>nextPage.click(),2000); //кликать кнопку next page, пока флаг true (пока не найдена ссылка на страницу)
